@@ -1,0 +1,22 @@
+WebElement e1 =driver.findElement(By.xpath("//span[text()='Select your DP']"));  click()
+WebElement e2=driver.findElement(By.xpath("/html/body/span/span/span[1]/input"));  e2.sendKeys("11");
+driver.findElement(By.xpath("//li[text()='ONLINE SECURITIES PRIVATE LIMITED (11800)']")).click();
+driver.findElement(By.xpath("//*[@id='username']")).sendKeys("141172");
+driver.findElement(By.xpath("//*[@id='password']")).sendKeys("8vr8hd4k");
+driver.findElement(By.xpath("/html/body/app-login/div/div/div/div/div/div/div[1]/div/form/div/div[4]/div/button")).click();
+
+driver.findElement(By.xpath("//span[text()='My ASBA']")).click();  delay 10s
+
+// APPLY/ Edit button
+"/html/body/app-dashboard/div/main/div/app-asba/div/div[2]/app-applicable-issue/div/div/div/div/div[descendant::span[contains(text(),'Ordinary Shares')]]/descendant::button"
+
+
+slect bank
+//*[@id="selectBank"]
+
+
+proceed button
+"//div/app-issue/div/wizard/div/wizard-step[1]/form/div[2]/descendant::button[descendant::span[contains(text(),'Proceed')]]"
+
+apply button
+"//div/app-issue/div/wizard/div/wizard-step[2]/descendant::button[descendant::span[contains(text(),'Apply')]]"
