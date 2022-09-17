@@ -2,16 +2,8 @@ default
 un: admin
 pw:123456
 
-
-
 Dipendra
 pw:123456
-
-
-
-creating selection processes is not supported now
-mark 6-19-2020
-
 
 Additional demonstrations added to this projects
  Several ways to restart the application programatically
@@ -21,3 +13,12 @@ Additional demonstrations added to this projects
 These restart functionality are demonstrated via several endpoints in AppRestartController
 
 4.devtools based: restart using trigger file 
+
+Guide of application use
+
+Configurations
+
+1. Operaton template : Operation template will contain several Action Parameters ,each action parameters act as individual step to be executed by selenium webdriver
+2. Add applicant for meroshare, Each applicant will be able to apply IPO
+3. Add the newly open IPO this ipo is selected in batch operation
+4 Application batch configuration, A batch operation is initiated, contains details such as which operation template to use,which applicant will apply for what quantity, etc
