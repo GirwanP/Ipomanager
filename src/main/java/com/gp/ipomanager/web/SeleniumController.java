@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -167,9 +167,11 @@ public class SeleniumController {
 			
 			
 			if(a.isApply()){
-				Thread.sleep(3000);
+			
+				System.out.println("Applying for applicant id:"+a.getApplicantId());
+				
 				WebDriver driver=autopilot.getDriver(url, BrowserType.firefox);
-
+				Thread.sleep(3000);
 				
 				DmatAccountDTO dmat=applicantService.getDematDetail1(a.getApplicantId()).get();
 				
@@ -244,27 +246,23 @@ for(Field m:DmatAccountDTO.class.getDeclaredFields()) {
 					parameters.setPathString(path);
 					
 					try {
-//						WebElement elem=
+						WebElement elem=
 								autopilot.executeInteractiveManual(parameters, driver);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						System.out.println("Exception occured while executing action on element");
 						e.printStackTrace();
 					}
 					Thread.sleep(5000);
 				}
 
 				Thread.sleep(5000);
-
-				driver.close();
+				System.out.println("quitting the driver");
+//				driver.close();
 				driver.quit();
+				
 			}
 			
-			
-			
 		}
-
-		
-
 
 		System.out.println("finishing");
 
