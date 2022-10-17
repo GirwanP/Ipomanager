@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -18,15 +18,15 @@ import static org.mockito.Mockito.atMost;
 
 import java.util.Optional;
 
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.gp.ipomanager.entities.DmatAccount;
 import com.gp.ipomanager.repository.ApplicantRepository;
 import com.gp.ipomanager.repository.DmatRepository;
 
 
-//@RunWith(mockito)
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 class ApplicantsServiceImplTest {
 
 	
@@ -38,7 +38,8 @@ class ApplicantsServiceImplTest {
 	   
 	//@InjectMocks annotation is used to create and inject the mock object
 	   @InjectMocks 
-	   ApplicantsServiceImpl applicationService = new ApplicantsServiceImpl();
+	   ApplicantsServiceImpl applicationService //;
+	   = new ApplicantsServiceImpl();
 
 
 	
@@ -55,8 +56,12 @@ class ApplicantsServiceImplTest {
 	   @BeforeAll
 	   public static void beforeClass() {
 	      System.out.println("in before class");
+//	      MockitoAnnotations.initMocks(ApplicantsServiceImplTest.class);;//This ensures all your mocks are initialised. This is supposed to be unnecessary when using MockitoJUnitRunner.
 	   }
-
+//	   @Before
+//	   public void setup() {
+//	       MockitoAnnotations.initMocks(this);
+//	   }
 	   //execute after class
 	   @AfterAll
 	   public static void  afterClass() {
@@ -97,7 +102,7 @@ class ApplicantsServiceImplTest {
 //		   DmatRepository dmatRepository= mock(DmatRepository.class);
 		   
 		   
-		   DmatAccount dto= new DmatAccount();
+ 		   DmatAccount dto= new DmatAccount();
 		   dto.setCrnNo("2345");
 			dto.setDpId("11800");
 			dto.setdPName("Online Security");
@@ -108,10 +113,8 @@ class ApplicantsServiceImplTest {
 		   
 		   when(dmatrepo.getForApplicant(10l)).thenReturn(Optional.ofNullable(dto));
 //			when(dmatRepository.getForApplicant(10l).get().getId()).thenReturn(10l);
-			   
 		   assertEquals(10l,applicationService.getDematDetail(10l).getId() );
 //		   DmatAccountDTO rdto= applicationService.getDematDetail(10l);
-		   
 //		   assertEquals(10l, rdto.getId());
 //		   assertEquals("2345", rdto.getCrnNo());
 		   

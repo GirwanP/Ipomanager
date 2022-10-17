@@ -21,4 +21,11 @@ Configurations
 1. Operaton template : Operation template will contain several Action Parameters ,each action parameters act as individual step to be executed by selenium webdriver
 2. Add applicant for meroshare, Each applicant will be able to apply IPO
 3. Add the newly open IPO this ipo is selected in batch operation
-4 Application batch configuration, A batch operation is initiated, contains details such as which operation template to use,which applicant will apply for what quantity, etc
+4 Application batch configuration, A batch operation is initiated,
+	 contains details such as which operation template to use,which applicant will apply for what quantity, etc
+	 
+STEPS TO APPLY FOR IPO
+* make sure applicant details is properly provided to the application
+1. Add IPO issue to the IpoOpenings, /allipos to check registered ipo list, /addnewIPOissue to add new IPO
+2. Fill and submit /batchapplicationsconf to start applying gor ipos for all selected candidate
+** In the applicant list, select 'true' from dropdown menu instead of 'Apply this time 'option	 
